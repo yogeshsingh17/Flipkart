@@ -29,18 +29,52 @@ API Endpoint
 To get a single product by ID:
 https://dummyjson.com/products/:id
 
-<!--  -->
-Product Details Page
+<!-- Features to add -->
+Product Details Page (Done)
 
-Cart Functionality
+Cart Functionality (Done)
 
 Search & Filter
 
-Toast Notifications
+Toast Notifications (Done)
 
 Dark Mode
 
 Responsive Mobile View
+
+Price Filter and Range Slider
+
+Category Filter / Multi-Filter
+
+Sorting
+
+Skeleton Loaders
+
+Toasts for Feedback
+
+Search Suggestions Dropdown
+
+Pagination or Infinite Scroll
+
+User Login/Signup (Authentication)
+
+Order Summary Page
+
+Save Address / Shipping Info
+
+Discount Coupons / Promo Codes
+
+Out of Stock Badge
+
+Recently Viewed Products
+
+Compare Products
+
+Dark Mode Toggle
+
+PWA Support
+
+Admin Panel (Optional)
 
 <!--  -->
 Install

@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { WishlistContext } from "../context/WishlistContextObject";
+import { CurrencyContext } from "../context/CurrenyContextObject";
 
 const ProductCard = ({ product }) => {
   const { wishlistItems, dispatch } = useContext(WishlistContext);
   const isWishlisted = wishlistItems.some(item => item.id === product.id);
+  const {rate, loading, error} = useContext(CurrencyContext);
+
+  if (!rate) return <p className="p-6">Loading currency rate...</p>;
+  if (loading) return <div className="p-6">Loading exchange rate...</div>;
+  if (error) return <div className="p-6 text-red-600">{error}</div>;
 
   const toggleWishlist = (e) => {
     e.preventDefault();
@@ -66,7 +72,7 @@ const ProductCard = ({ product }) => {
         />
         <h2 className="mt-2 text-lg font-semibold">{product.title}</h2>
         <p className="text-sm text-gray-600">{product.category}</p>
-        <p className="font-bold text-blue-600">₹{product.price * 80}</p>
+        <p className="font-bold text-blue-600">₹{Math.round(product.price * rate)}</p>
       </Link>
     </div>
   );

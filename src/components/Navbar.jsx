@@ -20,30 +20,28 @@ const Navbar = () => {
                     </img>
                 </Link>
             </h1>
-            {/* Wishlist logo */}
-            <Link to="/wishlist" className="relative">
-                ❤️ Wishlist
-            </Link>
-            {/* Cart logo */}
-            <div className="border border-gray-300 ">
-                <Link to="/cart">
-                    <span className="flex items-center">
-                        <img 
-                            src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/header_cart-eed150.svg" 
-                            alt="Cart" 
-                            class="_1XmrCc" 
-                            width="28" 
-                            height="28"
-                        />
-                        <span className="relative right-4 bottom-3">
-                            {cartItems.length > 0 && (
-                                <span className="flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-400 border border-white rounded-full">
-                                    {cartItems.length}
-                                </span>
-                            )}
+            <div className="flex items-center gap-4">
+                {/* Cart logo */}
+                <div className="border border-gray-300 ">
+                    <Link to="/cart">
+                        <span className="flex items-center">
+                            <img 
+                                src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/header_cart-eed150.svg" 
+                                alt="Cart" 
+                                class="_1XmrCc" 
+                                width="28" 
+                                height="28"
+                            />
+                            <span className="relative right-4 bottom-3">
+                                {cartItems.length > 0 && (
+                                    <span className="flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-400 border border-white rounded-full">
+                                        {cartItems.length}
+                                    </span>
+                                )}
+                            </span>
                         </span>
-                    </span>
-                </Link>
+                    </Link>
+                </div>
             </div>
         </nav>
     );

@@ -8,7 +8,7 @@ export const CurrencyProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.exchangerate.host/latest?base=USD&symbols=INR")
+    fetch("https://api.frankfurter.app/latest?from=USD&to=INR")
       .then(res => res.json())
       .then(data => {
         if (data?.rates?.INR) {

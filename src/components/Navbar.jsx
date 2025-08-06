@@ -7,21 +7,44 @@ const Navbar = () => {
     const { cartItems } = useCart();
 
     return (
-        <nav className="bg-blue-600 text-white p-4 flex justify-between items-center shadow">
-        <h1 className="text-xl font-bold">
-            <Link to="/">Flipkart Clone</Link>
-        </h1>
-        <div className="flex gap-4">
-            <Link to="/">Home</Link>
-            <Link to="/cart">
-                Cart
-                {cartItems.length > 0 && (
-                    <span className="ml-1 bg-white text-blue-600 px-2 py-0.5 rounded-full text-xs font-bold">
-                    {cartItems.length}
-                    </span>
-                )}
+        <nav className="flex items-center justify-between p-4 bg-white shadow">
+            {/* Logo */}
+            <h1 className="text-xl font-bold">
+                <Link to="/">
+                    <img 
+                        src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg" 
+                        width="160" 
+                        height="40" 
+                        title="Flipkart"
+                    >
+                    </img>
+                </Link>
+            </h1>
+            {/* Wishlist logo */}
+            <Link to="/wishlist" className="relative">
+                ❤️ Wishlist
             </Link>
-        </div>
+            {/* Cart logo */}
+            <div className="border border-gray-300 ">
+                <Link to="/cart">
+                    <span className="flex items-center">
+                        <img 
+                            src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/header_cart-eed150.svg" 
+                            alt="Cart" 
+                            class="_1XmrCc" 
+                            width="28" 
+                            height="28"
+                        />
+                        <span className="relative right-4 bottom-3">
+                            {cartItems.length > 0 && (
+                                <span className="flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-400 border border-white rounded-full">
+                                    {cartItems.length}
+                                </span>
+                            )}
+                        </span>
+                    </span>
+                </Link>
+            </div>
         </nav>
     );
 };

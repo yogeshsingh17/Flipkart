@@ -51,4 +51,4 @@ Add Dynamic Exchange Rate
 Use a Free Currency API
 
 ExchangeRate-API
-use https://api.exchangerate.host/latest (no API key needed).
+use https://api.frankfurter.app/latest?from=USD&to=INR (no API key needed).

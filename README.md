@@ -12,7 +12,7 @@ List of Categories: https://dummyjson.com/products/categories
 Product Details: https://dummyjson.com/products/1
 
 <!--  -->
-Step 4: Features to Build
+Features to Build
 Feature	Notes
 Product Listing Page	Home page with categories
 Product Search	Input + debounce API call
@@ -52,3 +52,4 @@ Use a Free Currency API
 
 ExchangeRate-API
 use https://api.frankfurter.app/latest?from=USD&to=INR (no API key needed).
+use https://api.exchangerate.host/latest (no API key needed).

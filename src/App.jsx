@@ -9,17 +9,19 @@ import Wishlist from "./pages/Wishlist";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<NotFoundPage />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        {/* More routes will be added soon */}
-      </Routes>
-    </BrowserRouter>
+    <div className="min-h-screen bg-base-100 text-base-content">
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          {/* More routes will be added soon */}
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 

@@ -40,14 +40,14 @@ const Cart = () => {
     );
 
     return (
-        <div className="flex gap-6 p-6">
+        <div className="flex gap-6 p-6 bg-base-100 text-base-content">
             <div className="w-3/5">
                 {/* Cart Section */}
                 <div>
-                    <h2 className="mb-4 text-2xl font-bold">Your Cart</h2>
+                    <h2 className="mb-4 text-2xl font-bold bg-base-100 text-base-content">Your Cart</h2>
 
                     {cartItems.length === 0 ? (
-                        <p>Your cart is empty.</p>
+                        <p className="bg-base-100 text-base-content">Your cart is empty.</p>
                     ) : (
                         <div className="flex gap-6">
                             <ul className="w-full space-y-4">
@@ -141,10 +141,10 @@ const Cart = () => {
             </div>
             {/* Total */}
             <div className="w-2/5 p-4 mt-12 text-xl font-bold border rounded min-h-fit max-h-fit">
-                <span className="text-gray-500">
+                <span className="bg-base-100 text-base-content">
                     Price Details
                 </span>
-                <hr className="mt-3 mb-3 border-t border-gray-300"></hr>
+                <hr className="mt-3 mb-3 border-t bg-base-100 text-base-content"></hr>
                 <span className="flex items-center justify-between font-bold">
                     <span>Total Amount</span> 
                     <span>₹{Math.round(total)}</span>

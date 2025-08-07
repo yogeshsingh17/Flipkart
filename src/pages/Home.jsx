@@ -3,34 +3,111 @@ import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import { CurrencyContext } from "../context/CurrenyContextObject";
 import PriceFilter from "../components/PriceFilter";
+import SearchFilter from "../components/filter/SearchFilter";
+
+const ProductSkeleton = () => (
+    <div className="flex flex-col gap-4 w-52">
+        <div className="w-full h-32 skeleton"></div>
+        <div className="h-4 skeleton w-28"></div>
+        <div className="w-full h-4 skeleton"></div>
+        <div className="w-full h-4 skeleton"></div>
+    </div>
+);
 
 const Home = () => {
+    const [productsLoading, setProductsLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const [priceLimit, setPriceLimit] = useState(100000);
-    const {rate, loading, error} = useContext(CurrencyContext);
-    const filteredProducts = products.filter(product => product.price*rate <= priceLimit);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalProducts, setTotalProducts] = useState(0);
+    const limit = 30;
+
+    const { rate, error } = useContext(CurrencyContext);
+
+    const fetchProducts = async (page) => {
+        const skip = (page-1) * limit;
+        
+        setProductsLoading(true);
+
+        try {
+            const response = await axios.get(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
+            const data = response.data;
+            setProducts(data.products);
+            setTotalProducts(data.total);
+        }
+        catch (err) {
+            console.error("Error fetching products:", err);
+        }
+        finally {
+            setProductsLoading(false);
+        }
+    }
 
     useEffect(() => {
-        axios.get("https://dummyjson.com/products")
-        .then(res => setProducts(res.data.products))
-        .catch(err => console.error(err));
-    }, []);
+        fetchProducts(currentPage);
+    }, [currentPage]);
 
-    if(!rate) return <p className="p-6">Loading currency rate...</p>;
-    if(loading) return <p className="p-6">Loading products...</p>;
-    if(error) return <p className="p-6 text-red-600">{error}</p>;
+    const filteredProducts = products.filter((product) => {
+        const priceInINR = product.price * rate;
+        const matchesPrice = priceInINR <= priceLimit;
+        const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesPrice && matchesSearch;
+    });
+
+    const totalPages = Math.ceil(totalProducts / limit);
+
+
+    // Only block UI if currency rate is missing or error
+    if (error) return <p className="p-6 text-red-600">{error}</p>;
+    if (!rate) return <p className="p-6">Loading currency rate...</p>;
 
     return (
         <div className="flex gap-6 p-4">
-            <div className="w-[20%]">
+            {/* Sidebar: Filters */}
+            <div className="w-[20%] space-y-4">
+                <SearchFilter onSearch={setSearchQuery} />
                 <PriceFilter min={0} max={500000} onChange={setPriceLimit} />
             </div>
+
+            {/* Main: Products */}
             <div className="w-[80%]">
-                {/* <h2 className="mb-4 text-2xl font-bold">All Products</h2> */}
                 <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-                    {filteredProducts.map(product => (
-                    <ProductCard key={product.id} product={product} />
-                    ))}
+                    {productsLoading ? (
+                        // Show 8 skeletons (or adjust based on your layout)
+                        Array.from({ length: 8 }).map((_, index) => 
+                            <ProductSkeleton key={index} />
+                    )) : (
+                        filteredProducts.map((product) => (
+                            <ProductCard key={product.id} product={product} />
+                        ))
+                    )}
+                </div>
+
+                {filteredProducts.length === 0 && (
+                    <p className="mt-4 text-gray-500">No products match your search or price filter.</p>
+                )}
+
+                {/* Pagination Controls */}
+                <div className="flex justify-center mt-8 space-x-4">
+                    <button
+                        className="px-4 py-2 text-white bg-blue-500 rounded disabled:opacity-50"
+                        onClick={() => setCurrentPage((prev) => prev - 1)}
+                        disabled={currentPage === 1}
+                    >
+                        Previous
+                    </button>
+                    <span className="flex items-center bg-base-100 text-base-content">
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <button
+                        // bg-base-100 text-base-content
+                        className="px-4 py-2 text-white bg-blue-500 rounded disabled:opacity-50"
+                        onClick={() => setCurrentPage((prev) => prev + 1)}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                    </button>
                 </div>
             </div>
         </div>

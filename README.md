@@ -34,27 +34,29 @@ Product Details Page (Done)
 
 Cart Functionality (Done)
 
-Search & Filter
+Lazy-loading for images (Done)
+
+Search & Filter (Done)
 
 Toast Notifications (Done)
 
-Dark Mode
+Dark Mode : css property : bg-base-100 text-base-content (Done)
 
 Responsive Mobile View
 
-Price Filter and Range Slider
+Price Filter and Range Slider (Done)
 
 Category Filter / Multi-Filter
 
 Sorting
 
-Skeleton Loaders
+Skeleton Loaders (Done)
 
 Toasts for Feedback
 
 Search Suggestions Dropdown
 
-Pagination or Infinite Scroll
+Pagination or Infinite Scroll (Done)
 
 User Login/Signup (Authentication)
 

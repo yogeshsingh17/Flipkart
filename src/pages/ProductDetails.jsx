@@ -25,18 +25,21 @@ const ProductDetails = () => {
     return (
         <div className="grid grid-cols-1 gap-8 p-6 md:grid-cols-2">
             {/* Product Image Section */}
-            <div className="flex gap-4 p-4 border rounded shadow">
+            <div className="flex gap-4 p-4 border rounded shadow-2xl bg-base-100 text-base-content">
+                {/* Thumbnail Images */}
                 <div className="flex flex-col gap-2 mt-4 overflow-x-auto">
                     {product.images.map((img, index) => (
                         <img
                             key={index}
                             src={img}
                             alt=""
-                            className="object-cover w-20 h-20 border rounded"
+                            loading="lazy"
+                            className="object-cover w-20 h-20 border rounded shadow-2xl cursor-pointer bg-base-100 text-base-content hover:border-black"
                         />
                     ))}
                 </div>
-                <div className="flex items-center justify-center flex-1 p-5 border rounded">
+                {/* Main Product Image */}
+                <div className="flex items-center justify-center flex-1 p-5 border rounded bg-base-100 text-base-content">
                     <img
                         src={product.thumbnail}
                         alt={product.title}
@@ -47,13 +50,13 @@ const ProductDetails = () => {
 
             {/* Product Info Section */}
             <div>
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-2xl font-bold bg-base-100 text-base-content">
                     {product.title}
                 </h2>
-                <p className="text-gray-600">
+                <p className="bg-base-100 text-base-content">
                     {product.category}
                 </p>
-                <p className="mt-4 text-lg text-gray-800">
+                <p className="mt-4 text-lg bg-base-100 text-base-content">
                     {product.description}
                 </p>
                 <p className="mt-4 text-xl font-bold text-blue-600">

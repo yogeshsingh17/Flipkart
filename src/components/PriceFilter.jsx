@@ -14,7 +14,7 @@ const PriceFilter = ({ priceLimit, min, max, onChange }) => {
 
     return (
         <>
-            <div className="p-4 mb-4 bg-white rounded shadow">
+            <div className="p-4 mb-4 rounded shadow bg-base-100 text-base-content">
                 <h3 className="mb-2 text-lg font-semibold">
                     Filters
                 </h3>
@@ -30,13 +30,13 @@ const PriceFilter = ({ priceLimit, min, max, onChange }) => {
                     onChange={handleChange}
                     className="w-full"
                 />
-                <div className="mt-2 text-sm text-gray-600">
+                <div className="mt-2 text-sm bg-base-100 text-base-content">
                     Under ₹{value}
                 </div>
             </div>
 
             <div className="flex flex-col items-center p-4 space-x-2 rounded shadow">
-                <label htmlFor="priceFilter" className="font-medium text-gray-700">
+                <label htmlFor="priceFilter" className="font-medium bg-base-100 text-base-content">
                     Filter by Price:
                 </label>
                 <CustomDropdown selected={priceLimit} setSelected={onChange}/>

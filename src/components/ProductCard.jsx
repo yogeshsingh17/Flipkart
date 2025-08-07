@@ -1,3 +1,13 @@
+/**
+ * ProductCard.jsx
+ * This component displays a product card with details like title, category, price, and thumbnail.
+ * It also includes a heart icon to add/remove the product from the wishlist.
+ * It uses React Router for navigation to the product details page.
+ * It utilizes the WishlistContext to manage wishlist state.
+ * It also uses the CurrencyContext to display prices in the selected currency.
+ * It handles loading and error states for the currency rate.
+ */
+
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { WishlistContext } from "../context/WishlistContextObject";
@@ -70,8 +80,8 @@ const ProductCard = ({ product }) => {
           alt={product.title}
           className="object-cover w-full h-40 rounded"
         />
-        <h2 className="mt-2 text-lg font-semibold">{product.title}</h2>
-        <p className="text-sm text-gray-600">{product.category}</p>
+        <h2 className="mt-2 text-lg font-semibold text-base-content bg-base-100">{product.title}</h2>
+        <p className="text-sm text-base-content bg-base-100">{product.category}</p>
         <p className="font-bold text-blue-600">₹{Math.round(product.price * rate)}</p>
       </Link>
     </div>

@@ -35,7 +35,7 @@ const CustomDropdown = ({ selected, setSelected }) => {
         <div className="relative w-full" ref={dropdownRef}>
         <button
             onClick={toggleDropdown}
-            className="flex items-center justify-between w-full px-4 py-2 bg-white border border-gray-300 rounded hover:border-blue-500"
+            className="flex items-center justify-between w-full px-4 py-2 border border-gray-300 rounded bg-base-100 text-base-content hover:border-blue-500"
         >
             <span>
             {
@@ -43,16 +43,16 @@ const CustomDropdown = ({ selected, setSelected }) => {
                 "Select Price"
             }
             </span>
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDown className="w-4 h-4 bg-base-100 text-base-content" />
         </button>
 
         {isOpen && (
-            <ul className="absolute z-20 w-full mt-2 bg-white border border-gray-300 rounded shadow">
+            <ul className="absolute z-20 w-full mt-2 border border-gray-300 rounded shadow bg-base-100 text-base-content">
             {priceOptions.map((option) => (
                 <li
                 key={option.value}
                 onClick={() => handleSelect(option.value)}
-                className="px-4 py-2 border-b cursor-pointer hover:bg-gray-100 last:border-b-0"
+                className="px-4 py-2 border-b cursor-pointer hover:bg-blue-400 last:border-b-0"
                 >
                 {option.label}
                 </li>

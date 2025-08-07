@@ -7,7 +7,7 @@ const Navbar = () => {
     const { cartItems } = useCart();
 
     return (
-        <nav className="flex items-center justify-between p-4 bg-white shadow">
+        <nav className="flex items-center justify-between p-4 border-b shadow bg-base-100 text-base-content">
             {/* Logo */}
             <h1 className="text-xl font-bold">
                 <Link to="/">
@@ -22,7 +22,7 @@ const Navbar = () => {
             </h1>
             <div className="flex items-center gap-4">
                 {/* Cart logo */}
-                <div className="border border-gray-300 ">
+                <div>
                     <Link to="/cart">
                         <span className="flex items-center">
                             <img 
@@ -31,6 +31,7 @@ const Navbar = () => {
                                 class="_1XmrCc" 
                                 width="28" 
                                 height="28"
+                                // className="bg-base-100 text-base-content"
                             />
                             <span className="relative right-4 bottom-3">
                                 {cartItems.length > 0 && (

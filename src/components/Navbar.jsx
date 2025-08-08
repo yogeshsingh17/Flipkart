@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/useCart";
-
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
 
@@ -21,6 +21,10 @@ const Navbar = () => {
                 </Link>
             </h1>
             <div className="flex items-center gap-4">
+                {/* Theme Toggle */}
+                <ThemeToggle />
+
+                {/* Wishlist */}
                 {/* Cart logo */}
                 <div>
                     <Link to="/cart">

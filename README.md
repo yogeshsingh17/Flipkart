@@ -78,6 +78,23 @@ PWA Support
 
 Admin Panel (Optional)
 
+Scroll-to-Top Button
+
+Price Breakdown
+Show item price, tax, shipping, discount, total.
+
+Multi-select Filters
+
+Debounced Search
+
+Meta Tags for Products
+
+Component Fallback UI
+
+Product Data Cache
+
+Type Safety with PropTypes or TypeScript
+
 <!--  -->
 Install
 npm install react-hot-toast

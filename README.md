@@ -72,7 +72,7 @@ Recently Viewed Products
 
 Compare Products
 
-Dark Mode Toggle
+Dark Mode Toggle (Done)
 
 PWA Support
 

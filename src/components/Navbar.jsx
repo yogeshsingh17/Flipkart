@@ -32,7 +32,7 @@ const Navbar = () => {
                             <img 
                                 src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/header_cart-eed150.svg" 
                                 alt="Cart" 
-                                class="_1XmrCc" 
+                                // class="_1XmrCc" 
                                 width="28" 
                                 height="28"
                                 // className="bg-base-100 text-base-content"

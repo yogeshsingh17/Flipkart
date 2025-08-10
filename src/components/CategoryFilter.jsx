@@ -31,6 +31,14 @@ const CategoryFilter = ({ selectedCategories, setSelectedCategories }) => {
 
     return (
         <div className="flex flex-wrap gap-2 p-4 mb-4 rounded shadow bg-base-100 text-base-content">
+            <div>Categories</div>
+            <div>
+                {selectedCategories.length > 0 ? (
+                    <span>Selected Categories: {selectedCategories.join(", ")}</span>
+                ) : (
+                    <span>No Categories Selected</span>
+                )}
+            </div>
             {categories.map((cat) => {
                 const catName = typeof cat === 'string' ? cat : (cat.name);
                 return (

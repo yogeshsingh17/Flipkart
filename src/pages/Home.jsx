@@ -115,7 +115,7 @@ const Home = () => {
             <div className="w-[80%]">
                 <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
                     {productsLoading ? (
-                        // Show 8 skeletons (or adjust based on your layout)
+                        // Show 8 skeletons
                         Array.from({ length: 8 }).map((_, index) => 
                             <ProductSkeleton key={index} />
                     )) : (
@@ -143,7 +143,6 @@ const Home = () => {
                             Page {currentPage} of {totalPages}
                         </span>
                         <button
-                            // bg-base-100 text-base-content
                             className="px-4 py-2 text-white bg-blue-500 rounded disabled:opacity-50"
                             onClick={() => setCurrentPage((prev) => prev + 1)}
                             disabled={currentPage === totalPages}

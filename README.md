@@ -106,3 +106,12 @@ Use a Free Currency API
 ExchangeRate-API
 use https://api.frankfurter.app/latest?from=USD&to=INR (no API key needed).
 use https://api.exchangerate.host/latest (no API key needed).
+
+<!-- Issues to resolve -->
+Category filter is not working completely.
+What is working :
+    If the product of selected category is available on page 1, then the products for that category are fetched successfully.
+What is not working :
+    If the product of a selected category is not available on page one but is available in the api, on selecting that particular category the products are not fetched.
+What more to add :
+    If the category is de-selected/removed. All the products of all categories must be available on the UI.
